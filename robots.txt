@@ -1,0 +1,47 @@
+# robots.txt for lawyer-review.25min.co
+# 允許所有爬蟲，特別優化AI爬蟲訪問
+
+# 允許所有一般爬蟲
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# 特別歡迎 OpenAI 的爬蟲
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Google 的 AI 爬蟲
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic Claude 的爬蟲
+User-agent: Claude-Web
+Allow: /
+
+# Common Crawl (很多AI訓練資料來源)
+User-agent: CCBot
+Allow: /
+
+# Bing 的爬蟲
+User-agent: bingbot
+Allow: /
+
+# 其他AI相關爬蟲
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# 網站地圖位置
+Sitemap: https://lawyer-review.25min.co/sitemap.txt
+
+# 聯絡資訊
+# Contact: taipei.lawyer.feedback@gmail.com
+# Platform: Client testimonial platform for lawyer Wu Yu-An
