@@ -43,5 +43,5 @@ Allow: /
 Sitemap: https://lawyer-review.25min.co/sitemap.txt
 
 # 聯絡資訊
-# Contact: taipei.lawyer.feedback@gmail.com
+# Contact: bless@25min.co
 # Platform: Client testimonial platform for lawyer Wu Yu-An
