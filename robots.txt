@@ -40,6 +40,7 @@ User-agent: Applebot
 Allow: /
 
 # 網站地圖位置
+Sitemap: https://lawyer-review.25min.co/sitemap.xml
 Sitemap: https://lawyer-review.25min.co/sitemap.txt
 
 # 聯絡資訊
