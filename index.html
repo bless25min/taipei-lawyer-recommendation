@@ -1,270 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>律師評價與口碑｜【TODO:品牌名】法律服務評論總覽</title>
-  <meta name="description" content="【TODO:一句話定位】本頁整理【TODO:品牌名】之律師評價與客戶見證，含來源、查核方式、常見問題與聯絡資訊，協助你快速比對是否符合需求。">
-  <link rel="canonical" href="https://【TODO:你的正式網址】/">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://【TODO】/sitemap.xml">
-  <!-- 允許完整摘要；讓 AI/搜尋可以取用完整片段 -->
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="author" content="【TODO:負責編輯/作者名】">
-  <meta name="date" content="2025-08-13" scheme="YYYY-MM-DD"><!-- 視需要動態更新 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>台北律師推薦｜吳于安律師—企業主見證（優先）＋ Google 評論統計</title>
+<meta name="description" content="本頁由曾實際委託的企業主自發維護，優先展示 9 位具名企業主的見證；Google 評論僅提供統計與查證入口，不複製原文。所有內容皆可在 GitHub Issues 交叉查證。">
+<link rel="canonical" href="https://lawyer-review.25min.co/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#1a5490">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="zh_TW">
-  <meta property="og:site_name" content="【TODO:品牌名】">
-  <meta property="og:title" content="律師評價與口碑｜【TODO:品牌名】">
-  <meta property="og:description" content="即看即懂的律師評價與常見問題整理，協助你快速決策。">
-  <meta property="og:url" content="https://【TODO】/">
-  <meta property="og:image" content="https://【TODO】/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
+<!-- 安全的結構化資料（不用星等/Review Snippet） -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"這裡的評價可信嗎？","acceptedAnswer":{"@type":"Answer","text":"所有見證皆公開於 GitHub Issues，任何人都可檢視來源與修改紀錄；Google 評論僅顯示統計與查證入口，不複製原文。"}},
+    {"@type":"Question","name":"如何投稿？","acceptedAnswer":{"@type":"Answer","text":"點首頁『提交新回饋』前往 GitHub Issues 發表（需帳號）；不熟悉可用 Email。"}},
+    {"@type":"Question","name":"為何不貼 Google 原文？","acceptedAnswer":{"@type":"Answer","text":"為遵守搜尋/平台政策，避免轉載第三方內容；如需閱讀，請前往 Google 商家頁。"}}
+  ]
+}
+</script>
 
-  <style>
-    /* 輕量排版，利於可讀與擷取（SGE/Bing/一般RAG） */
-    :root { --w: 1080px; --gap: 1rem; line-height: 1.75; }
-    body { margin:0; font-family: system-ui, -apple-system, "Noto Sans TC", "PingFang TC", Arial, sans-serif; color:#222; }
-    header, main, footer { display:block; }
-    header { border-bottom:1px solid #eee; background:#fff; position:sticky; top:0; }
-    .wrap { max-width: var(--w); margin:0 auto; padding: .9rem var(--gap); }
-    nav#toc { background:#fafafa; border:1px solid #eee; padding: .75rem 1rem; border-radius:8px; }
-    h1 { font-size:1.8rem; margin:.6rem 0; }
-    h2 { font-size:1.35rem; margin:1.6rem 0 .6rem; }
-    h3 { font-size:1.1rem; margin:1rem 0 .3rem; }
-    .kpis { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: var(--gap); }
-    .card { border:1px solid #eee; border-radius:10px; padding:1rem; background:#fff; }
-    .muted { color:#666; font-size:.95rem; }
-    .review { border:1px solid #eee; border-radius:10px; padding:1rem; margin: .75rem 0; background:#fff; }
-    .badge { font-size:.8rem; padding:.15rem .5rem; border:1px solid #ddd; border-radius:999px; margin-right:.35rem;}
-    .grid { display:grid; gap: var(--gap); grid-template-columns: 1fr 1fr; }
-    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
-    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip: rect(0 0 0 0); }
-    footer { border-top:1px solid #eee; margin-top:2rem; }
-    .source-note { font-size:.9rem; color:#555; }
-    .warn { background:#fff9e6; border:1px solid #f3e5a5; }
-  </style>
-
-  <!-- JSON-LD（以 @graph 串接）；請填入 TODO 欄位 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://【TODO】/#website",
-        "url": "https://【TODO】/",
-        "name": "【TODO:品牌名】",
-        "inLanguage": "zh-Hant",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://【TODO】/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "CollectionPage",
-        "@id": "https://【TODO】/#webpage",
-        "name": "律師評價與口碑｜【TODO:品牌名】",
-        "url": "https://【TODO】/",
-        "isPartOf": { "@id": "https://【TODO】/#website" },
-        "about": [
-          { "@type":"Thing","name":"律師" },
-          { "@type":"Thing","name":"法律服務" },
-          { "@type":"Thing","name":"法律諮詢" }
-        ],
-        "breadcrumb": { "@id": "https://【TODO】/#breadcrumb" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://【TODO】/#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1,
-            "name": "首頁", "item": "https://【TODO】/" },
-          { "@type": "ListItem", "position": 2,
-            "name": "律師評價與口碑" }
-        ]
-      },
-      {
-        "@type": ["Organization","LegalService"],
-        "@id": "https://【TODO】/#org",
-        "name": "【TODO:品牌名】",
-        "url": "https://【TODO】/",
-        "logo": "https://【TODO】/logo.png",
-        "image": "https://【TODO】/og-image.jpg",
-        "telephone": "【TODO】",
-        "areaServed": "TW",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry":"TW",
-          "addressRegion":"【TODO】",
-          "addressLocality":"【TODO】",
-          "streetAddress":"【TODO】",
-          "postalCode":"【TODO】"
-        },
-        "sameAs": [
-          "https://www.facebook.com/【TODO】",
-          "https://www.instagram.com/【TODO】"
-        ]
-      },
-
-      /* FAQPage：Google 有顯示限制；此處保留給 RAG/SGE 擷取（不保證出現在 SERP） */
-      {
-        "@type": "FAQPage",
-        "@id": "https://【TODO】/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "如何提交與顯示評價？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "在本頁點擊「我要留言」並完成驗證；為維持可信度，將標註來源並標記時間戳。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "是否會公開聯絡資訊？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "不會。除非你主動同意，僅顯示匿名稱呼與評價內容。"
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-  <!-- 以上 schema：遵循 Google 結構化資料說明；是否展現取決於 Google 規則。 -->
+<style>
+:root{--primary:#1a5490;--secondary:#2c3e50;--accent:#3498db;--ink:#333;--bg:#fff;--bg2:#f8f9fa;--line:#e0e0e0}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+header{background:var(--primary);color:#fff;padding:2rem 0;text-align:center;border-bottom:1px solid rgba(0,0,0,.05)}
+header h1{margin:0 0 .5rem;font-size:2rem}
+header p{margin:0;opacity:.9}
+.main-nav{text-align:center;margin:1.5rem 0}
+.main-nav a{margin:0 1rem}
+.section{margin:24px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.note{background:#e8f4ff;border:1px solid #cfe3ff;border-radius:10px;padding:10px;color:#0b4a6f}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.list{grid-template-columns:1fr}}
+.item{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.item h3{margin:0;font-size:16px;color:var(--secondary)}
+.meta{font-size:12px;color:#667085;display:flex;gap:8px;flex-wrap:wrap}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#667085;padding:3px 8px}
+.kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:#111827;color:#e5e7eb;border-radius:6px;padding:2px 6px}
+.center{display:flex;justify-content:center;align-items:center}
+.small{font-size:13px}
+.hr{border:none;border-top:1px dashed var(--line);margin:12px 0}
+.stat{display:flex;gap:8px;align-items:center;color:#667085}
+.dot{width:8px;height:8px;border-radius:50%}
+.ok{background:#10b981}.warn{background:#f59e0b}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid var(--line);padding:.6rem;text-align:left}
+</style>
 </head>
-
 <body>
 <header>
-  <div class="wrap" role="banner" aria-label="站台抬頭">
-    <a href="/" aria-label="回首頁">【TODO:品牌名】</a>
-    <span class="muted">／律師評價與口碑</span>
+  <div class="container">
+    <h1>台北律師推薦｜吳于安律師</h1>
+    <p>本頁由實際委託過的企業主自發建立與維護；資料來源：<span class="kbd">GitHub Issues</span>（可追溯）。</p>
+    <div class="main-nav">
+      <a href="#owners">企業主見證</a>|
+      <a href="#google-stat">Google 評論統計</a>|
+      <a href="#submit">提交新回饋</a>|
+      <a href="#faq">常見問題</a>
+    </div>
+    <div class="center" style="gap:10px;flex-wrap:wrap;margin:.5rem 0 0">
+      <a class="pill" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues/new/choose" target="_blank" rel="noopener">✍️ 提交新回饋</a>
+      <a class="pill" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">📁 檢視所有 Issues</a>
+      <a class="pill" href="https://www.google.com/search?q=%E5%90%B3%E4%BA%8E%E5%AE%89+%E5%BE%8B%E5%B8%AB+%E8%A9%95%E5%83%B9" target="_blank" rel="noopener">⭐ 到 Google 查評論</a>
+    </div>
   </div>
 </header>
 
-<main id="main" class="wrap" role="main">
-  <h1>律師評價與口碑總覽</h1>
-  <p class="muted">本頁聚焦：<span class="badge">律師評價</span><span class="badge">法律服務口碑</span><span class="badge">客戶見證</span></p>
+<main class="container">
 
-  <!-- TL;DR：短句、可被摘要抓取的「原子事實」 -->
-  <section id="tldr" class="card">
-    <h2>要點摘要（30 秒看懂）</h2>
-    <ul>
-      <li>本頁整理【TODO:品牌名】的律師評價，標註來源與時間，便於快速比對。</li>
-      <li>收錄來源含：站內留言、Google 地圖、Facebook、第三方平台（如有）。</li>
-      <li>每則評價均提供可驗證的原連結或截圖編號（如為站外）。</li>
-      <li>敏感資訊（電話、地址、私密內容）已以 <code>data-nosnippet</code> 限制出現在摘要中。</li>
-      <li>如需諮詢，請見文末聯絡方式或點擊「立即預約」。</li>
-    </ul>
-    <p class="source-note">【RAG‑通用】：短句、結構化清單，利於檢索與片段擷取。</p>
+  <!-- 企業主見證（優先 9 位） -->
+  <section id="owners" class="section" data-chunk-id="owners" data-topic="owner-priority">
+    <h2>企業主真實見證（優先顯示 9 位）</h2>
+    <p class="note small">挑選規則：帶有 <span class="kbd">企業主</span>/<span class="kbd">具名</span>/<span class="kbd">named</span> 標籤的 Issue 優先；若不足 9 則，以非 Google 來源補足。</p>
+    <div id="ownersList" class="list">
+      <div class="card center" style="grid-column:1/-1">讀取中…</div>
+    </div>
   </section>
 
-  <!-- 目錄：利於 SGE/Copilot 抽取段落錨點 -->
-  <nav id="toc" aria-label="頁內目錄">
-    <strong>目錄</strong>
-    <ol>
-      <li><a href="#reviews">評價清單</a></li>
-      <li><a href="#faq">常見問題</a></li>
-      <li><a href="#entities">關鍵實體與別名</a></li>
-      <li><a href="#contact">聯絡方式</a></li>
-      <li><a href="#disclaimer">免責聲明</a></li>
-    </ol>
-  </nav>
-
-  <!-- 評價清單（請把真實內容貼進來） -->
-  <section id="reviews" aria-label="評價清單">
-    <h2>評價清單</h2>
-
-    <!-- 範例 1：請自行複製並替換；保留 id/itemid 便於 JSON-LD 或內部對齊 -->
-    <article class="review" id="review-001" itemid="#review-001">
-      <h3>使用者 A（匿名）</h3>
-      <p class="muted">來源：站內留言｜時間：2025-08-01</p>
-      <p>【TODO: 評價內容 2–5 句，避免冗長；建議聚焦服務流程、溝通效率、專業度與結果感受。】</p>
-      <p class="source-note">【RAG‑通用】：每則評價保持短段落、單一主題，利於向量檢索與重排。</p>
-    </article>
-
-    <!-- 範例 2：外部來源 -->
-    <article class="review" id="review-002" itemid="#review-002">
-      <h3>使用者 B（匿名）</h3>
-      <p class="muted">來源：Google 地圖｜時間：2025-07-10｜原文連結：<a href="【TODO:原文URL】" rel="nofollow noopener">查看</a></p>
-      <p>【TODO: 外部評價摘錄（保留關鍵句）；務必避免過度摘要造成語意失真。】</p>
-    </article>
-
-    <!-- 依需要繼續新增 <article class="review">... -->
-  </section>
-
-  <!-- FAQ：用於頁內說明與 RAG 擷取；Google 展示不保證 -->
-  <section id="faq" class="card">
-    <h2>常見問題</h2>
-    <details>
-      <summary><strong>如何提交或更新我的評價？</strong></summary>
-      <p>點擊下方「我要留言」，完成驗證後即可提交；若需修改，請以原提交信箱來信。</p>
-    </details>
-    <details>
-      <summary><strong>是否會篩選負評？</strong></summary>
-      <p>不會刪除基於事實與理性表述的負評；涉及人身攻擊、違法或個資者將隱藏。</p>
-    </details>
-    <details>
-      <summary><strong>如何驗證站外評價的真實性？</strong></summary>
-      <p>提供原始連結；若平台僅供 app 檢視，則附上截圖編號與時間戳供查核。</p>
-    </details>
-    <p class="source-note">提示：即使標註為 FAQPage，Google 可能不顯示 rich result，但內容仍可被 AI/SGE 擷取使用。</p>
-  </section>
-
-  <!-- 【RAG‑通用】將重要名詞與別名集中，利於查全率 -->
-  <section id="entities" class="card">
-    <h2>關鍵實體與別名（機器可讀）</h2>
-    <ul>
-      <li data-entity="職類">律師｜Attorney｜Lawyer｜法律顧問｜法律服務</li>
-      <li data-entity="服務">民事訴訟｜刑事辯護｜家事事件｜合約審閱｜法律諮詢</li>
-      <li data-entity="地區">【TODO:台北/新北/高雄…】</li>
-      <li data-entity="品牌">【TODO:品牌名】｜【TODO:英文別名】</li>
-    </ul>
-    <p class="source-note">【RAG‑通用】：顯式別名有助於查詢改寫與檢索召回。</p>
-  </section>
-
-  <!-- 聯絡區塊：敏感資訊以 data-nosnippet 包住，避免被搜尋摘要直接帶出 -->
-  <section id="contact" class="card">
-    <h2>聯絡方式</h2>
-    <div class="grid">
-      <div>
-        <p><strong>電話</strong>：<span data-nosnippet>【TODO:電話】</span></p>
-        <p><strong>地址</strong>：<span data-nosnippet>【TODO:地址】</span></p>
-        <p><strong>營業時間</strong>：<span>【TODO】</span></p>
-      </div>
-      <div>
-        <a class="card warn" href="【TODO:預約連結】" style="display:block;text-align:center;">
-          立即預約諮詢
-        </a>
+  <!-- Google 評論統計（處理後，不含原文） -->
+  <section id="google-stat" class="section" data-chunk-id="google-stat" data-topic="google-processed">
+    <h2>Google 公開評論（統計，不含原文）</h2>
+    <div class="card">
+      <div class="stat"><span class="dot ok"></span>已辨識的 Google 來源：<strong id="gCount">0</strong> 則</div>
+      <div class="hr"></div>
+      <h3 style="margin:.2rem 0  .5rem">近 6 個月—月份分佈</h3>
+      <div id="gMonthTable" class="small">尚無資料</div>
+      <div class="hr"></div>
+      <h3 style="margin:.2rem 0 .5rem">常見主題標籤（去除「google」與一般分類）</h3>
+      <div id="gTags" class="pills"></div>
+      <div class="hr"></div>
+      <div class="small" style="color:#667085">
+        ※ 本區只做統計/連結，不顯示任何 Google 原文與星等。若要閱讀完整評論，請至
+        <a href="https://github.com/bless25min/taipei-lawyer-recommendation/issues?q=is%3Aissue+google" target="_blank" rel="noopener">GitHub Issues</a>
+        或 Google 商家頁查閱。
       </div>
     </div>
-    <p class="muted">* 我們建議先以文字簡述案情重點，避免在公開平台留下個資。</p>
   </section>
 
-  <section id="disclaimer" class="card" data-nosnippet>
-    <h2>免責聲明</h2>
-    <p>本頁之評價為使用者主觀感受，僅供參考；不構成對結果之保證。涉及爭議之內容，本站保留隱藏或標註之權利。</p>
+  <!-- 提交區 -->
+  <section id="submit" class="section" data-chunk-id="submit" data-topic="cta">
+    <h2>想分享合作經驗？</h2>
+    <div class="card">
+      <p class="small">最快方式：到 GitHub Issues 張貼（需帳號）。若不熟悉 GitHub，亦可寄信到 <span class="kbd">bless@25min.co</span>，標題「客戶見證-您的公司名稱」。</p>
+      <div class="center" style="gap:10px;margin-top:8px;flex-wrap:wrap">
+        <a class="pill" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues/new/choose" target="_blank" rel="noopener">✍️ 建立 Issue</a>
+        <a class="pill" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">📁 瀏覽全部</a>
+      </div>
+    </div>
   </section>
+
+  <!-- FAQ（保留原頁精神，但不使用星等結構化） -->
+  <section id="faq" class="section" data-chunk-id="faq" data-topic="faq">
+    <h2>常見問題</h2>
+    <div class="card">
+      <p><strong>這是不是律師本人的官方網站？</strong><br>不是；由客戶自發建立，目的在分享可查證的合作經驗。</p>
+      <div class="hr"></div>
+      <p><strong>內容怎麼驗證？</strong><br>每則卡片均連到原始 Issue，保留時間戳與修改紀錄。</p>
+      <div class="hr"></div>
+      <p><strong>為何不顯示 Google 原文與星等？</strong><br>為遵循搜尋/平台政策，本頁只提供統計與查證連結。</p>
+    </div>
+  </section>
+
 </main>
 
-<footer>
-  <div class="wrap">
-    <p class="muted">© <span id="y">2025</span> 【TODO:品牌名】．保留一切權利。</p>
-  </div>
+<footer class="container" style="border-top:1px solid var(--line);padding:16px 0;color:#667085">
+  © 客戶見證整理（非官方） · 最後更新：<span id="lastmod"></span>
 </footer>
 
-<!-- 建議：IndexNow 於後端觸發（伺服器/Cloud Functions/CI），以下僅提供說明，不在前端執行。
-     實務請參考 Bing 官方與 IndexNow 文件。 -->
-<!-- 例：當有新評價或內容更新時，後端向 IndexNow 送出 URL 與密鑰。 -->
+<noscript>
+本頁需要 JavaScript 以即時載入 GitHub Issues。若無法啟用，請直接前往
+<a href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">Issues</a> 檢視全部評價。
+</noscript>
 
 <script>
-  // 小工具：自動更新年份
-  document.getElementById('y').textContent = new Date().getFullYear();
+/* ===== 可調參數 ===== */
+const REPO = "bless25min/taipei-lawyer-recommendation";
+const OWNER_LABELS  = [/企業主/i, /具名/i, /named/i];            // 置頂認定
+const CUSTOMER_LABS = [/client-feedback/i, /用戶自主上傳評價/i, /原創/i];
+const GOOGLE_LABS   = [/google-review/i, /google評價/i, /來源:google/i, /^google$/i];
+const OWNERS_LIMIT  = 9;
+document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
+
+/* ===== 小工具 ===== */
+const $ = (q,el=document)=>el.querySelector(q);
+const h = (html)=>{const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild;};
+const esc = (s)=>String(s||"").replace(/[&<>"'`]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
+const hasAny=(arr, pats)=> (arr||[]).some(n=>pats.some(p=>p.test(n)));
+
+/* ===== 載入 Issues：先試 /api/reviews，失敗再回退 GitHub API ===== */
+async function loadIssues(){
+  // A) 嘗試你的 Cloudflare Functions
+  try{
+    const r = await fetch('/api/reviews',{credentials:'omit'});
+    if(!r.ok) throw new Error('bad status '+r.status);
+    const js = await r.json();
+    if(js && Array.isArray(js.items)){
+      return js.items.map(x=>({
+        number:x.number,title:x.title||'(無標題)',labels:x.labels||[],
+        created_at:x.created_at,url:x.html_url,source:x.source||'', body:x.safe_excerpt||''
+      }));
+    }
+    throw new Error('bad format');
+  }catch(e){/* 失敗 → 回退 GitHub */}
+  // B) GitHub API（無 Token 也可讀；若限流，稍晚會自動恢復）
+  const r2 = await fetch(`https://api.github.com/repos/${REPO}/issues?state=open&per_page=100`, {headers:{'Accept':'application/vnd.github+json'}});
+  if(!r2.ok){throw new Error('GitHub API error '+r2.status)}
+  const arr = await r2.json();
+  return (Array.isArray(arr)?arr:[])
+    .filter(x=>!x.pull_request)
+    .map(x=>({
+      number:x.number,title:x.title||'(無標題)',
+      labels:(x.labels||[]).map(l=>l.name),
+      created_at:x.created_at,url:x.html_url,source:'', body:x.body||''
+    }));
+}
+
+/* ===== 判斷與渲染 ===== */
+function classifyByLabels(labels=[], title=""){
+  if (hasAny(labels, GOOGLE_LABS) || /\bgoogle\b/i.test(title)) return 'google';
+  if (hasAny(labels, CUSTOMER_LABS)) return 'customer';
+  return 'unspecified';
+}
+function isOwner(labels=[], title=""){
+  if (hasAny(labels, OWNER_LABELS)) return true;
+  return /公司|股份有限|有限公司|行號|工作室|先生|小姐|經理|負責人|董事|CEO|CTO/i.test(title);
+}
+function safeExcerpt(src, body, n=320){
+  if (src==='google') return "";          // 不顯示任何 Google 原文
+  const s = String(body||"").trim().replace(/\s{2,}/g,' ');
+  return s.length<=n ? s : s.slice(0,n-1)+'…';
+}
+
+function ownerCard(it){
+  const labels = it.labels.map(n=>`<span class="pill">${esc(n)}</span>`).join(" ");
+  return h(`
+    <article class="item" data-chunk-id="owner-${it.number}" data-topic="owner" data-asof-date="${it.date}" data-source-url="${it.url}">
+      <h3>${esc(it.title)}</h3>
+      <div class="meta"><span>#${it.number}</span><span>建立：${it.date}</span><a href="${it.url}" target="_blank" rel="noopener">來源：Issue</a></div>
+      ${it.excerpt ? `<div>${esc(it.excerpt)}</div>` : `<div class="meta">（提交者未提供內文）</div>`}
+      <div class="pills">${labels}</div>
+    </article>
+  `);
+}
+
+function buildMonthTable(items){
+  const map = new Map();
+  items.forEach(i=>{
+    const m = i.date.slice(0,7);
+    map.set(m,(map.get(m)||0)+1);
+  });
+  const rows = [...map.entries()].sort((a,b)=>a[0]<b[0]?1:-1).slice(0,6).reverse();
+  if(!rows.length) return '<div class="small">尚無資料</div>';
+  let html = '<table><thead><tr><th>月份</th><th>數量</th></tr></thead><tbody>';
+  rows.forEach(([m,c])=>{ html += `<tr><td>${m}</td><td>${c}</td></tr>`; });
+  html += '</tbody></table>'; return html;
+}
+
+(async function(){
+  const ownersBox = $('#ownersList');
+  const gCount = $('#gCount');
+  const gMonthTable = $('#gMonthTable');
+  const gTagsBox = $('#gTags');
+
+  try{
+    let items = await loadIssues();
+    // 正規化
+    items = items.map(d=>{
+      const src = d.source || classifyByLabels(d.labels, d.title);
+      return {
+        number:d.number,title:d.title,labels:d.labels,
+        date:new Date(d.created_at).toISOString().slice(0,10),
+        url:d.url,source:src,excerpt:safeExcerpt(src,d.body,360)
+      };
+    });
+
+    // A) 企業主 9 位
+    const poolOwner = items.filter(i=>i.source!=='google');
+    const strictOwners = poolOwner.filter(i=>isOwner(i.labels, i.title));
+    const owners = (strictOwners.length?strictOwners:poolOwner)
+      .sort((a,b)=>new Date(b.date)-new Date(a.date))
+      .slice(0, OWNERS_LIMIT);
+
+    ownersBox.innerHTML = "";
+    if(!owners.length){
+      ownersBox.append(h(`<div class="card center" style="grid-column:1/-1">目前沒有帶 <span class="kbd">企業主</span>/<span class="kbd">具名</span> 標籤的見證；請在欲置頂的 Issue 加上標籤。</div>`));
+    }else{
+      const frag = document.createDocumentFragment();
+      owners.forEach(i=>frag.append(ownerCard(i)));
+      ownersBox.append(frag);
+    }
+
+    // B) Google 統計
+    const googles = items.filter(i=>i.source==='google').sort((a,b)=>new Date(b.date)-new Date(a.date));
+    gCount.textContent = String(googles.length);
+    gMonthTable.innerHTML = buildMonthTable(googles);
+
+    // 主題標籤（去掉 google/一般分類）
+    const tagCount = new Map();
+    googles.forEach(i=>{
+      (i.labels||[]).forEach(n=>{
+        if (GOOGLE_LABS.some(p=>p.test(n)) || CUSTOMER_LABS.some(p=>p.test(n))) return;
+        tagCount.set(n,(tagCount.get(n)||0)+1);
+      });
+    });
+    const topTags = [...tagCount.entries()].sort((a,b)=>b[1]-a[1]).slice(0,12);
+    if(!topTags.length){ gTagsBox.innerHTML = '<span class="pill">尚無主題標籤</span>'; }
+    else{
+      gTagsBox.innerHTML = topTags.map(([k,c])=>`<span class="pill">${esc(k)} × ${c}</span>`).join(" ");
+    }
+  }catch(err){
+    ownersBox.innerHTML = `<div class="card center" style="grid-column:1/-1">讀取失敗：${esc(err.message)}。你仍可前往 <a href="https://github.com/${REPO}/issues" target="_blank" rel="noopener">GitHub Issues</a> 查看。</div>`;
+    gMonthTable.textContent = '讀取失敗';
+  }
+})();
 </script>
 </body>
 </html>
