@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>吳于安律師 評價｜企業主見證（優先）＋ Google 評論查證入口（非官方）</title>
+<title>吳于安律師 評價｜企業主見證（優先）＋ Google 評論查證（非官方）</title>
 <meta name="description" content="本頁以 GitHub Issues 為唯一資料源，優先展示 9 位具名企業主的真實見證；Google 評論僅顯示處理後的主題與查證連結，不複製原文，符合搜尋與平台規範。">
 <link rel="canonical" href="https://lawyer-review.25min.co/">
 <meta name="robots" content="index,follow">
@@ -51,8 +51,8 @@
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans TC",Arial,sans-serif}
 a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
-header{border-bottom:1px solid var(--line);background:color-mix(in oklch, var(--bg), transparent 0%)}
-.hero{padding:14px 0 8px}
+header{border-bottom:1px solid var(--line)}
+.hero{padding:12px 0}
 .hero h1{margin:0 0 6px;font-size:26px}
 .hero p{margin:0;color:var(--muted)}
 .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
@@ -62,22 +62,18 @@ main{padding:20px 0}
 .section{margin:20px 0}
 h2{font-size:22px;margin:0 0 10px}
 .note{background:var(--chip);border:1px solid var(--chipbd);border-radius:10px;padding:10px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:2.2fr 1fr;gap:16px}
-@media (max-width:980px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
 .list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:900px){.list{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
 .item{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}
 .item h3{margin:0;font-size:16px}
 .meta{color:var(--muted);font-size:12px;display:flex;gap:8px;flex-wrap:wrap}
 .pills{display:flex;gap:6px;flex-wrap:wrap}
 .pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 8px;background:var(--card);color:var(--muted)}
 .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:#111827;color:#e5e7eb;border-radius:6px;padding:2px 6px}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-small.muted{color:var(--muted)}
-hr.hr{border:none;border-top:1px dashed var(--line);margin:12px 0}
 .center{display:flex;justify-content:center}
-#moreGoogle{margin-top:10px}
+.small{font-size:13px}
+.hr{border:none;border-top:1px dashed var(--line);margin:12px 0}
 .stat{display:flex;gap:8px;align-items:center;color:var(--muted)}
 .dot{width:8px;height:8px;border-radius:50%}
 .dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)}
@@ -98,40 +94,33 @@ hr.hr{border:none;border-top:1px dashed var(--line);margin:12px 0}
 
 <main class="wrap" id="main">
   <!-- A. 9 位具名企業主（優先） -->
-  <section id="owners" class="section">
+  <section id="owners" class="section" data-chunk-id="owners" data-topic="owner-priority">
     <h2>企業主真實見證（優先顯示 9 位）</h2>
-    <p class="note">排序規則：帶有 <span class="kbd">client-feedback</span>/<span class="kbd">用戶自主上傳評價</span> 等標籤，且包含 <span class="kbd">具名</span>/<span class="kbd">企業主</span>/<span class="kbd">named</span> 的 Issue 會被優先挑選；若沒有上述標籤，則從非 Google 來源的見證中回退挑選。</p>
+    <p class="note small">挑選規則：帶有 <span class="kbd">企業主</span>/<span class="kbd">具名</span>/<span class="kbd">named</span> 標籤的 Issue 優先；不足 9 則時，以非 Google 來源補滿。</p>
     <div id="ownersList" class="list">
       <div class="card center" style="grid-column:1/-1">讀取中…</div>
     </div>
   </section>
 
   <!-- B. Google 公開評論（處理後） -->
-  <section id="google" class="section">
+  <section id="google" class="section" data-chunk-id="google-processed" data-topic="google-processed">
     <h2>Google 公開評論（處理後展示，不含原文）</h2>
-    <div class="grid">
-      <div class="card">
-        <div id="googleList" class="list">
-          <div class="card center" style="grid-column:1/-1">整理中…</div>
-        </div>
-        <div class="center"><button id="moreGoogle" class="btn">載入更多</button></div>
+    <div class="card">
+      <div id="googleList" class="list">
+        <div class="card center" style="grid-column:1/-1">整理中…</div>
       </div>
-      <aside class="card">
-        <div class="stat"><span class="dot ok"></span> 已載入：<span id="statCount">0</span> 則（含企業主與 Google）</div>
-        <div class="stat" style="margin-top:8px"><span class="dot warn"></span> 說明：Google 來源僅顯示標籤與查證連結，不顯示原文與星等。</div>
-        <hr class="hr" />
-        <p class="small muted">想要你的意見被優先展示？請在 Issue 加上 <span class="kbd">具名</span> 標籤（公司或個人具名），並選擇 <span class="kbd">client-feedback</span> 類別。</p>
-      </aside>
+      <div class="center" style="margin-top:10px"><button id="moreGoogle" class="btn">載入更多</button></div>
     </div>
+    <p class="small" style="color:var(--muted);margin-top:8px">說明：Google 來源僅顯示主題標籤與查證連結，不顯示任何原文與星等。</p>
   </section>
 
-  <section class="section">
+  <section class="section" data-chunk-id="method" data-topic="methodology">
     <h2>方法與合規</h2>
     <div class="card">
-      <ul>
-        <li>資料來源以 GitHub Issues 為主；每則卡片保留到原始 Issue 的連結，方便查證。</li>
-        <li>Google 評論**不顯示原文**、不宣告星等；只提供查證入口與主題標籤。</li>
-        <li>頁面沒有 Review/AggregateRating 的結構化資料，避免「自我服務型評論」風險。</li>
+      <ul class="small">
+        <li>資料來源以 GitHub Issues 為主；每則卡片保留到原始 Issue 的連結。</li>
+        <li>Google 評論不顯示原文與星等；只提供查證入口與主題標籤。</li>
+        <li>頁面不使用 Review/AggregateRating 的結構化資料。</li>
       </ul>
     </div>
   </section>
@@ -147,79 +136,73 @@ hr.hr{border:none;border-top:1px dashed var(--line);margin:12px 0}
 </noscript>
 
 <script>
-/* ======================
-   可調參數
-====================== */
+/* ===== 可調參數（依你的標籤命名而定） ===== */
 const REPO = "bless25min/taipei-lawyer-recommendation";
-const PRIORITY_LABELS = [/具名/i, /企業主/i, /named/i];          // 具名判斷標籤
-const CUSTOMER_LABELS = [/client-feedback/i, /用戶自主上傳評價/i, /原創/i]; // 客戶自述
-const GOOGLE_LABELS = [/來源:google/i, /google/i];                // Google 來源
-const OWNERS_LIMIT = 9;                                           // 企業主優先顯示數
-const GOOGLE_PAGE = 12;                                           // Google 每頁顯示
-document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
+const OWNER_LABELS  = [/企業主/i, /具名/i, /named/i];                 // 置頂的 9 則以此為準
+const CUSTOMER_LABS = [/client-feedback/i, /用戶自主上傳評價/i, /原創/i];
+const GOOGLE_LABS   = [/google-review/i, /google評價/i, /來源:google/i, /^google$/i];
+const OWNERS_LIMIT  = 9;
+const GOOGLE_PAGE   = 12;
 
-/* ======================
-   工具函式
-====================== */
-const $ = (q, el=document)=>el.querySelector(q);
+/* ===== 工具 ===== */
+const $ = (q,el=document)=>el.querySelector(q);
 const h = (html)=>{const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild;};
-const esc = (s)=>String(s||"").replace(/[&<>"'`]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
+const esc = (s)=>String(s||"").replace(/[&<>"'`]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
+const hasAny=(names, pats)=> (names||[]).some(n=>pats.some(p=>p.test(n)));
 
-/* 文字清洗（避免長度過長） */
-function trimText(s, n=320){ s = (s||"").trim(); if(s.length<=n) return s; return s.slice(0,n-1)+'…'; }
-
-/* 標籤判斷 */
-const hasAny = (names, pats)=>names?.some(n=>pats.some(p=>p.test(n)))||false;
-
-/* 來源分類（後端有 /api/reviews 時會直接給；這邊做前端保險） */
-function classify(issue){
-  const labels = (issue.labels||[]).map(l=> typeof l==='string'?l : l.name);
-  if (hasAny(labels, GOOGLE_LABELS) || /google評價|google\s*review/i.test(issue.title||"")) return 'google';
-  if (hasAny(labels, CUSTOMER_LABELS)) return 'customer';
+/* 來源分類（雙保險：即使沒有 /api/reviews 也能在前端判斷） */
+function classifyByLabels(labels=[], title=""){
+  if (hasAny(labels, GOOGLE_LABS) || /\[?google[^\]]*評價\]?/i.test(title)) return 'google';
+  if (hasAny(labels, CUSTOMER_LABS)) return 'customer';
   return 'unspecified';
 }
-/* 具名判斷：標籤優先，否則用簡單規則（標題含公司/姓名） */
-function isNamed(issue){
-  const labels = (issue.labels||[]).map(l=> typeof l==='string'?l : l.name);
-  if (hasAny(labels, PRIORITY_LABELS)) return true;
-  const title = issue.title||"";
-  return /公司|股份有限|有限公司|行號|工作室|先生|小姐|經理|負責人|老闆|董事|CEO|CTO/i.test(title);
+function isOwner(labels=[], title=""){
+  if (hasAny(labels, OWNER_LABELS)) return true;
+  // 補充規則：標題含公司/職稱字樣也視為具名（避免漏抓）
+  return /公司|股份有限|有限公司|行號|工作室|先生|小姐|經理|負責人|董事|CEO|CTO/i.test(title);
 }
 
-/* UI：卡片 */
-function renderOwnerCard(it){
-  const labels = (it.labels||[]).map(n=>`<span class="pill">${esc(n)}</span>`).join(" ");
+/* 清洗文字，控制長度；Google 來源一律不顯示正文 */
+function safeExcerpt(source, body, n=360){
+  if (source==='google') return "";   // 不顯示任何 Google 原文
+  const s = String(body||"").trim().replace(/\s{2,}/g,' ');
+  return s.length<=n ? s : s.slice(0,n-1)+'…';
+}
+
+/* UI 卡片 */
+function ownerCard(it){
+  const labels = it.labels.map(n=>`<span class="pill">${esc(n)}</span>`).join(" ");
   return h(`
-    <article class="item" data-chunk-id="issue-${it.number}" data-topic="owner" data-asof-date="${it.date}" data-source-url="${it.url}">
+    <article class="item" data-chunk-id="owner-${it.number}" data-topic="owner" data-asof-date="${it.date}" data-source-url="${it.url}">
       <h3>${esc(it.title||'（無標題）')}</h3>
       <div class="meta"><span>#${it.number}</span><span>建立：${it.date}</span><a href="${it.url}" target="_blank" rel="noopener">來源：Issue</a></div>
       ${it.excerpt ? `<div>${esc(it.excerpt)}</div>` : `<div class="meta">（提交者未提供內文）</div>`}
       <div class="pills">${labels}</div>
-      <div class="actions"><a class="pill" href="${it.url}" target="_blank" rel="noopener">閱讀完整內容 →</a></div>
+      <div class="meta"><a class="pill" href="${it.url}" target="_blank" rel="noopener">閱讀完整內容 →</a></div>
     </article>
   `);
 }
-function renderGoogleCard(it){
-  // 只顯示「標籤＋查證連結」，不顯示原文、不顯示星等/評分
-  const usefulLabels = (it.labels||[]).filter(n=>!GOOGLE_LABELS.some(p=>p.test(n)) && !CUSTOMER_LABELS.some(p=>p.test(n)));
-  const chips = usefulLabels.length ? usefulLabels.slice(0,6).map(n=>`<span class="pill">${esc(n)}</span>`).join(" ") : `<span class="pill">Google 公開評論</span>`;
+function googleCard(it){
+  // 只露出主題標籤與查證連結（濾掉『google』類標籤與自述標籤）
+  const useful = it.labels.filter(n=>!GOOGLE_LABS.some(p=>p.test(n)) && !CUSTOMER_LABS.some(p=>p.test(n)));
+  const chips = (useful.length? useful.slice(0,6) : ['Google 公開評論']).map(n=>`<span class="pill">${esc(n)}</span>`).join(" ");
   return h(`
-    <article class="item" data-chunk-id="issue-${it.number}" data-topic="google" data-asof-date="${it.date}" data-source-url="${it.url}">
+    <article class="item" data-chunk-id="google-${it.number}" data-topic="google" data-asof-date="${it.date}" data-source-url="${it.url}">
       <h3>Google 公開評論（處理後）</h3>
       <div class="meta"><span>#${it.number}</span><span>建立：${it.date}</span></div>
       <div class="pills">${chips}</div>
-      <div class="actions">
+      <div class="meta">
         <a class="pill" href="${it.url}" target="_blank" rel="noopener">前往 Issue 查證</a>
         <a class="pill" href="https://www.google.com/search?q=%E5%90%B3%E4%BA%8E%E5%AE%89+%E5%BE%8B%E5%B8%AB+%E8%A9%95%E5%83%B9" target="_blank" rel="noopener">到 Google 查看</a>
       </div>
-      <small class="muted">說明：不顯示任何 Google 原文與星等；請於 Google 商家頁閱讀完整內容。</small>
+      <small class="small" style="color:var(--muted)">本卡片不顯示 Google 原文與星等；請於 Google 商家頁閱讀完整內容。</small>
     </article>
   `);
 }
 
 /* 載入資料：優先 /api/reviews，失敗則回退 GitHub API */
-async function loadData(){
-  // A) 嘗試你的 Pages Functions
+async function loadIssues(){
+  // A) 你的 Pages Functions
   try{
     const r = await fetch('/api/reviews',{credentials:'omit'});
     if(r.ok){
@@ -227,82 +210,87 @@ async function loadData(){
       if(js && Array.isArray(js.items)){
         return js.items.map(x=>({
           number:x.number,
-          title:x.title,
-          labels:x.labels,
+          title:x.title||'(無標題)',
+          labels:x.labels||[],
           created_at:x.created_at,
-          html_url:x.html_url,
-          source:x.source,                 // 後端已分類：customer / google / unspecified
-          safe_excerpt:x.safe_excerpt||""
+          url:x.html_url,
+          source:x.source || classifyByLabels(x.labels||[], x.title||''),
+          body:x.safe_excerpt || ''  // 伺服端已裁切過；Google 來源多半為空字串
         }));
       }
     }
-  }catch(e){ /* ignore and fallback */ }
-
+  }catch(e){/* 忽略，回退 GitHub */}
   // B) 回退 GitHub API
-  const url = `https://api.github.com/repos/${REPO}/issues?state=open&per_page=100`;
-  const r = await fetch(url,{headers:{'Accept':'application/vnd.github+json'}});
+  const r = await fetch(`https://api.github.com/repos/${REPO}/issues?state=open&per_page=100`, {headers:{'Accept':'application/vnd.github+json'}});
   const arr = await r.json();
-  return (Array.isArray(arr)?arr:[]).filter(x=>!x.pull_request).map(x=>{
-    const src = classify(x);
-    // Google 來源：前端再次淨化 → 不帶任何正文
-    const excerpt = (src==='google') ? "" : trimText(x.body||"", 360);
-    return {
-      number:x.number,
-      title:x.title||"(無標題)",
-      labels:(x.labels||[]).map(l=>l.name),
-      created_at:x.created_at,
-      html_url:x.html_url,
-      source:src,
-      safe_excerpt:excerpt
-    };
-  });
+  return (Array.isArray(arr)?arr:[])
+    .filter(x=>!x.pull_request)
+    .map(x=>{
+      const labels=(x.labels||[]).map(l=>l.name);
+      const source=classifyByLabels(labels, x.title||'');
+      return {
+        number:x.number,
+        title:x.title||'(無標題)',
+        labels,
+        created_at:x.created_at,
+        url:x.html_url,
+        source,
+        body:x.body||''
+      };
+    });
 }
 
-/* 主流程 */
+/* 主程式 */
+document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
+
 (async function(){
   const ownersBox = $('#ownersList');
   const googleBox = $('#googleList');
-  const statCount = $('#statCount');
   const moreBtn = $('#moreGoogle');
 
-  let data = await loadData();
-  // 轉換基本欄位
-  data = data.map(d=>({
-    number:d.number, title:d.title, labels:d.labels||[],
-    date: new Date(d.created_at).toISOString().slice(0,10),
-    url: d.html_url, source: d.source || classify(d),
-    excerpt: d.safe_excerpt ? trimText(d.safe_excerpt, 360) : ""
+  let items = await loadIssues();
+  // 正規化
+  items = items.map(d=>({
+    number:d.number,
+    title:d.title,
+    labels:d.labels||[],
+    date:new Date(d.created_at).toISOString().slice(0,10),
+    url:d.url,
+    source:d.source,
+    excerpt:safeExcerpt(d.source, d.body, 360)
   }));
-  statCount.textContent = data.length;
 
-  // A) 企業主優先（9 位）
-  const namedOwners = data.filter(d => d.source!=='google' && isNamed(d));
-  const ownerPool = namedOwners.length ? namedOwners : data.filter(d=>d.source!=='google');
-  const owners = ownerPool.sort((a,b)=> new Date(b.date)-new Date(a.date)).slice(0, OWNERS_LIMIT);
+  // A) 企業主 9 位（優先：有 OWNER_LABELS；不足再補 customer/unspecified，排除 google）
+  const poolOwner = items.filter(i => i.source!=='google');
+  const strictOwners = poolOwner.filter(i => isOwner(i.labels, i.title));
+  const owners = (strictOwners.length ? strictOwners : poolOwner)
+                  .sort((a,b)=>new Date(b.date)-new Date(a.date))
+                  .slice(0, OWNERS_LIMIT);
 
   ownersBox.innerHTML = "";
   if(!owners.length){
-    ownersBox.append(h(`<div class="card center" style="grid-column:1/-1">目前沒有「具名企業主」見證。請在想優先顯示的 Issue 加上 <span class="kbd">具名</span> 標籤。</div>`));
+    ownersBox.append(h(`<div class="card center" style="grid-column:1/-1">目前尚無「企業主」標籤的見證。請在想置頂的 Issue 加上 <span class="kbd">企業主</span> 或 <span class="kbd">具名</span>。</div>`));
   }else{
     const frag = document.createDocumentFragment();
-    owners.forEach(it=>frag.append(renderOwnerCard(it)));
+    owners.forEach(it=>frag.append(ownerCard(it)));
     ownersBox.append(frag);
   }
 
-  // B) Google 公開評論（處理後，不含原文）
-  const googleItems = data.filter(d=>d.source==='google').sort((a,b)=> new Date(b.date)-new Date(a.date));
+  // B) Google（處理後；不含原文）
+  const googles = items.filter(i=>i.source==='google').sort((a,b)=>new Date(b.date)-new Date(a.date));
   let gPage = 0;
-  function renderGooglePage(){
-    const slice = googleItems.slice(gPage*GOOGLE_PAGE, (gPage+1)*GOOGLE_PAGE);
+  function renderGoogle(){
+    const start=gPage*GOOGLE_PAGE, end=start+GOOGLE_PAGE;
+    const slice=googles.slice(start,end);
+    if(gPage===0) googleBox.innerHTML="";
     const frag = document.createDocumentFragment();
-    slice.forEach(it=>frag.append(renderGoogleCard(it)));
-    if(gPage===0) googleBox.innerHTML = "";
+    slice.forEach(it=>frag.append(googleCard(it)));
     googleBox.append(frag);
     gPage++;
-    if(gPage*GOOGLE_PAGE >= googleItems.length) moreBtn.style.display = 'none';
+    if(end>=googles.length) moreBtn.style.display='none';
   }
-  moreBtn.addEventListener('click', renderGooglePage);
-  renderGooglePage(); // 初次載入
+  moreBtn.addEventListener('click', renderGoogle);
+  renderGoogle();
 })();
 </script>
 </body>
