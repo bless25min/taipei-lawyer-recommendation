@@ -1,266 +1,309 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>台北律師推薦｜吳于安律師—客戶評價與經驗分享（由客戶自發維護）</title>
-  <meta name="description" content="由實際委託過的企業主自發維護，公開記錄對吳于安律師的合作經驗與評價。所有內容可在 GitHub Issues 查證，亦歡迎您提交新回饋。" />
-  <link rel="canonical" href="https://lawyer-review.25min.co/" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>吳于安律師 評價｜企業主見證（優先）＋ Google 評論查證入口（非官方）</title>
+<meta name="description" content="本頁以 GitHub Issues 為唯一資料源，優先展示 9 位具名企業主的真實見證；Google 評論僅顯示處理後的主題與查證連結，不複製原文，符合搜尋與平台規範。">
+<link rel="canonical" href="https://lawyer-review.25min.co/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0b6cff">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="台北律師推薦｜吳于安律師—客戶評價與經驗分享（由客戶自發維護）" />
-  <meta property="og:description" content="真實、可查證、持續更新。評價來源：本站 GitHub Issues（公開透明）。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lawyer-review.25min.co/" />
-  <meta property="og:locale" content="zh_TW" />
-
-  <!-- 結構化資料（FAQPage；避免自我服務型 Review/Rating 標記） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "這裡的評價從哪裡來？可信嗎？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "評價由曾實際委託過的客戶自願提交於 GitHub Issues，任何人都能檢視來源、追蹤修改紀錄與補充事證。本頁僅呈現 Issues 內容的整理摘要與連結。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "如果我想分享合作經驗，要如何投稿？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "請點擊首頁的「提交新回饋」按鈕，會帶您到 GitHub Issues 的建立頁面（需 GitHub 帳號）。填寫標題與內文即可送出。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "為什麼不直接貼 Google 商家原文？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "為遵守 Google 的內容使用規範與搜尋政策，我們不複製商家原文；若要閱讀 Google 上的評價，請到 Google 商家頁面查看。"
-        }
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root{
-      --brand:#1a5490; --ink:#263238; --muted:#607d8b; --bg:#fafafa; --card:#ffffff; --line:#e0e0e0;
-      --accent:#0ea5e9; --ok:#10b981; --warn:#f59e0b;
+<!-- 結構化資料：QAPage + HowTo（安全，不標星等） -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"QAPage",
+  "mainEntity":{
+    "@type":"Question",
+    "name":"吳于安律師評價如何？",
+    "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"本頁以可追溯的 GitHub Issues 為資料源，優先展示 9 位具名企業主的真實見證；Google 評論僅顯示處理後的主題標籤與查證連結，不複製原文。"
     }
-    *{box-sizing:border-box} body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC",Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.6}
-    a{color:var(--brand); text-decoration:none} a:hover{text-decoration:underline}
-    header{background:var(--brand); color:#fff; padding:40px 16px}
-    .wrap{max-width:1040px; margin:0 auto; padding:0 16px}
-    .hero h1{margin:0 0 8px; font-size:28px; letter-spacing:.5px}
-    .hero p{margin:0; opacity:.9}
-    .bar{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
-    .chip{background:rgba(255,255,255,.15); color:#fff; padding:6px 10px; border-radius:999px; font-size:14px}
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .btn{display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--brand); border:1px solid #fff; padding:10px 14px; border-radius:10px; font-weight:700}
-    .btn.outline{background:transparent; color:#fff; border-color:rgba(255,255,255,.5)}
-    main{padding:28px 0}
-    .section{margin:28px 0}
-    h2{font-size:22px; margin:0 0 12px}
-    .note{background:#e8f4ff; border:1px solid #cfe3ff; padding:12px 14px; border-radius:10px; color:#0b4a6f}
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
-    .col-8{grid-column:span 8} .col-4{grid-column:span 4}
-    @media (max-width:960px){.col-8,.col-4{grid-column:1/-1}}
-    .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px}
-    .meta{display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:12px}
-    .pill{display:inline-block; padding:4px 8px; border-radius:999px; border:1px solid var(--line); font-size:12px; color:var(--muted); background:#fff}
-    .review{display:flex; flex-direction:column; gap:8px}
-    .review h3{margin:0; font-size:16px}
-    .review .body{white-space:pre-wrap}
-    .review .footer{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap}
-    .empty{padding:24px; text-align:center; color:var(--muted)}
-    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#111827; color:#e5e7eb; padding:2px 6px; border-radius:6px; font-size:12px}
-    footer{margin-top:36px; padding:28px 0; border-top:1px dashed var(--line); color:var(--muted)}
-    .stat{display:flex; gap:12px; align-items:center}
-    .dot{width:8px; height:8px; border-radius:50%}
-    .dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)}
-    .tagcloud{display:flex; flex-wrap:wrap; gap:8px}
-    .toc{display:flex; flex-wrap:wrap; gap:10px}
-    .toc a{background:#fff; border:1px solid var(--line); padding:6px 10px; border-radius:999px}
-  </style>
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"如何查證 Google 上的公開評論",
+  "description":"不複製第三方評論原文，指引用戶前往 Google 商家頁閱讀。",
+  "step":[
+    {"@type":"HowToStep","name":"開啟 Google 地圖","text":"maps.google.com 或 Google 地圖 App。"},
+    {"@type":"HowToStep","name":"搜尋","text":"輸入「鴻安法律事務所 吳于安」。"},
+    {"@type":"HowToStep","name":"瀏覽評論","text":"點「評論」，可用『最新』或『最高評分』篩選。"},
+    {"@type":"HowToStep","name":"交叉核對","text":"留意日期、情境；必要時對照官方頁與可公開自述。"}
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#0b1220; --fg:#e6edf7; --muted:#93a4b8; --card:#0f172a; --line:#1f2a44; --brand:#4ea1ff;
+  --chip:#132338; --chipbd:#1f2a44; --ok:#10b981; --warn:#f59e0b;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#fafafa; --fg:#0f172a; --muted:#667085; --card:#ffffff; --line:#e2e8f0; --brand:#0b6cff; --chip:#f1f5ff; --chipbd:#e2e8f0; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans TC",Arial,sans-serif}
+a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+header{border-bottom:1px solid var(--line);background:color-mix(in oklch, var(--bg), transparent 0%)}
+.hero{padding:14px 0 8px}
+.hero h1{margin:0 0 6px;font-size:26px}
+.hero p{margin:0;color:var(--muted)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-weight:700}
+.btn.primary{background:var(--brand);color:#fff;border-color:color-mix(in oklch, var(--brand), #000 10%)}
+main{padding:20px 0}
+.section{margin:20px 0}
+h2{font-size:22px;margin:0 0 10px}
+.note{background:var(--chip);border:1px solid var(--chipbd);border-radius:10px;padding:10px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:2.2fr 1fr;gap:16px}
+@media (max-width:980px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.list{grid-template-columns:1fr}}
+.item{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+.item h3{margin:0;font-size:16px}
+.meta{color:var(--muted);font-size:12px;display:flex;gap:8px;flex-wrap:wrap}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 8px;background:var(--card);color:var(--muted)}
+.kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:#111827;color:#e5e7eb;border-radius:6px;padding:2px 6px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+small.muted{color:var(--muted)}
+hr.hr{border:none;border-top:1px dashed var(--line);margin:12px 0}
+.center{display:flex;justify-content:center}
+#moreGoogle{margin-top:10px}
+.stat{display:flex;gap:8px;align-items:center;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap hero">
-      <h1>台北律師推薦｜吳于安律師</h1>
-      <p>本頁由曾實際委託的客戶自發建立與維護，評價可在 GitHub Issues 查證。</p>
-      <div class="bar">
-        <span class="chip">公開透明</span>
-        <span class="chip">可追溯來源</span>
-        <span class="chip">不轉載 Google 原文</span>
-      </div>
-      <div class="cta-row">
-        <a class="btn" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues/new/choose" target="_blank" rel="noopener">✍️ 提交新回饋</a>
-        <a class="btn outline" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">🔎 檢視所有 Issues</a>
-        <a class="btn outline" href="https://www.google.com/search?q=%E5%90%B3%E4%BA%8E%E5%AE%89+%E5%BE%8B%E5%B8%AB+%E8%A9%95%E5%83%B9" target="_blank" rel="noopener">⭐ 到 Google 查看商家評價</a>
-      </div>
+<header>
+  <div class="wrap hero">
+    <h1>吳于安律師 評價｜企業主見證（優先）＋ Google 查證入口</h1>
+    <p>資料源：<span class="kbd">GitHub Issues</span>（可追溯）。不複製 Google 原文。</p>
+    <div class="ctas">
+      <a class="btn primary" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues/new/choose" target="_blank" rel="noopener">✍️ 提交新回饋</a>
+      <a class="btn" href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">📁 檢視所有 Issues</a>
+      <a class="btn" href="https://www.google.com/search?q=%E5%90%B3%E4%BA%8E%E5%AE%89+%E5%BE%8B%E5%B8%AB+%E8%A9%95%E5%83%B9" target="_blank" rel="noopener">⭐ 到 Google 查評論</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="wrap">
-    <nav class="section toc" aria-label="頁內導覽">
-      <a href="#reviews">客戶評價</a>
-      <a href="#highlights">常見亮點</a>
-      <a href="#faq">常見問題</a>
-    </nav>
+<main class="wrap" id="main">
+  <!-- A. 9 位具名企業主（優先） -->
+  <section id="owners" class="section">
+    <h2>企業主真實見證（優先顯示 9 位）</h2>
+    <p class="note">排序規則：帶有 <span class="kbd">client-feedback</span>/<span class="kbd">用戶自主上傳評價</span> 等標籤，且包含 <span class="kbd">具名</span>/<span class="kbd">企業主</span>/<span class="kbd">named</span> 的 Issue 會被優先挑選；若沒有上述標籤，則從非 Google 來源的見證中回退挑選。</p>
+    <div id="ownersList" class="list">
+      <div class="card center" style="grid-column:1/-1">讀取中…</div>
+    </div>
+  </section>
 
-    <section id="reviews" class="section">
-      <h2>客戶評價（來源：GitHub Issues）</h2>
-      <p class="note">下方內容由公開的 GitHub Issues 即時載入與整理；每張卡片皆附上來源連結以供查證。</p>
-
-      <!-- 統計＋篩選 -->
-      <div class="grid" style="margin-top:12px">
-        <div class="col-8">
-          <div class="card" id="reviews-list">
-            <div class="empty">讀取中…</div>
-          </div>
-        </div>
-        <aside class="col-4">
-          <div class="card" id="reviews-stats">
-            <div class="stat"><span class="dot ok"></span><strong>已載入：</strong><span id="stat-count">0</span> 則</div>
-            <div style="margin-top:8px"><strong>主題標籤：</strong></div>
-            <div class="tagcloud" id="tagcloud" style="margin-top:8px"></div>
-            <hr style="margin:12px 0; border:none; border-top:1px dashed var(--line)" />
-            <div class="stat"><span class="dot warn"></span><strong>資料來源說明：</strong></div>
-            <p style="margin:8px 0 0; font-size:14px; color:var(--muted)">本頁僅顯示由客戶授權公開的內容；Google 商家原文不複製於此，請至商家頁面閱讀。</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="highlights" class="section">
-      <h2>客戶回饋常見亮點</h2>
-      <div class="grid">
-        <div class="col-4"><div class="card"><strong>溝通清楚</strong><br/>擅長把複雜條文講人話，協助決策。</div></div>
-        <div class="col-4"><div class="card"><strong>回應快速</strong><br/>常見回饋提到即時、有效率的回覆。</div></div>
-        <div class="col-4"><div class="card"><strong>策略明確</strong><br/>善於提出可執行的處理路徑與風險說明。</div></div>
-      </div>
-      <p class="note" style="margin-top:12px">以上為 Issues 文字的常見詞彙歸納（僅做摘要，不代表個案保證）。</p>
-    </section>
-
-    <section id="faq" class="section">
-      <h2>常見問題</h2>
+  <!-- B. Google 公開評論（處理後） -->
+  <section id="google" class="section">
+    <h2>Google 公開評論（處理後展示，不含原文）</h2>
+    <div class="grid">
       <div class="card">
-        <p><strong>Q：這是不是律師本人的官方網站？</strong><br/>A：不是。本頁由客戶自發建立，目的在分享可查證的合作經驗，幫助正在評估的使用者。</p>
-        <hr style="border:none; border-top:1px dashed var(--line); margin:12px 0" />
-        <p><strong>Q：如何確保內容可靠？</strong><br/>A：每則回饋皆保留到 GitHub Issues 的原文連結與時間戳，可追溯與補充資訊。</p>
-        <hr style="border:none; border-top:1px dashed var(--line); margin:12px 0" />
-        <p><strong>Q：是否會顯示星等或平均分數？</strong><br/>A：為避免違反搜尋引擎對「自我服務型評論」的規範，我們不在頁面或結構化資料中宣告星等分數。</p>
+        <div id="googleList" class="list">
+          <div class="card center" style="grid-column:1/-1">整理中…</div>
+        </div>
+        <div class="center"><button id="moreGoogle" class="btn">載入更多</button></div>
       </div>
-    </section>
+      <aside class="card">
+        <div class="stat"><span class="dot ok"></span> 已載入：<span id="statCount">0</span> 則（含企業主與 Google）</div>
+        <div class="stat" style="margin-top:8px"><span class="dot warn"></span> 說明：Google 來源僅顯示標籤與查證連結，不顯示原文與星等。</div>
+        <hr class="hr" />
+        <p class="small muted">想要你的意見被優先展示？請在 Issue 加上 <span class="kbd">具名</span> 標籤（公司或個人具名），並選擇 <span class="kbd">client-feedback</span> 類別。</p>
+      </aside>
+    </div>
+  </section>
 
-    <footer class="wrap">
-      <div>本頁以 <span class="kbd">GitHub Issues</span> 為唯一資料源；原始碼與修改紀錄皆公開。</div>
-      <div style="margin-top:6px; font-size:14px">© 由客戶自發維護 | 非律師本人建立之網站</div>
-    </footer>
-  </main>
+  <section class="section">
+    <h2>方法與合規</h2>
+    <div class="card">
+      <ul>
+        <li>資料來源以 GitHub Issues 為主；每則卡片保留到原始 Issue 的連結，方便查證。</li>
+        <li>Google 評論**不顯示原文**、不宣告星等；只提供查證入口與主題標籤。</li>
+        <li>頁面沒有 Review/AggregateRating 的結構化資料，避免「自我服務型評論」風險。</li>
+      </ul>
+    </div>
+  </section>
+</main>
 
-  <noscript>
-    本頁需要 JavaScript 以即時載入 GitHub Issues。若無法啟用，您仍可
-    <a href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">直接在 GitHub 檢視評價</a>。
-  </noscript>
+<footer class="wrap" style="border-top:1px solid var(--line);padding-top:14px;color:var(--muted)">
+  © 客戶見證整理（非官方） · 最後更新：<span id="lastmod"></span>
+</footer>
 
-  <script>
-    // ====== 可調參數 ======
-    const REPO = "bless25min/taipei-lawyer-recommendation";
-    // 建議在 Issues 內使用下列任一標籤；未找到則回退為全部 open issues
-    const LABELS_TRY = ["review", "評價", "testimonial"];
+<noscript>
+本頁需要 JavaScript 才能即時載入 Issues。若你無法啟用，請直接前往
+<a href="https://github.com/bless25min/taipei-lawyer-recommendation/issues" target="_blank" rel="noopener">GitHub Issues</a> 檢視全部評價。
+</noscript>
 
-    // ====== 小工具 ======
-    const $ = (q, el=document) => el.querySelector(q);
-    const h = (html) => { const t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstElementChild; };
-    const esc = (s) => s.replace(/[&<>"'`]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
+<script>
+/* ======================
+   可調參數
+====================== */
+const REPO = "bless25min/taipei-lawyer-recommendation";
+const PRIORITY_LABELS = [/具名/i, /企業主/i, /named/i];          // 具名判斷標籤
+const CUSTOMER_LABELS = [/client-feedback/i, /用戶自主上傳評價/i, /原創/i]; // 客戶自述
+const GOOGLE_LABELS = [/來源:google/i, /google/i];                // Google 來源
+const OWNERS_LIMIT = 9;                                           // 企業主優先顯示數
+const GOOGLE_PAGE = 12;                                           // Google 每頁顯示
+document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
 
-    // 簡單關鍵詞抽取（用於側欄 tagcloud）
-    function topKeywords(text){
-      const STOP = new Set(["的","了","與","及","在","我們","我","您","他","她","也","都","就","很","更","不是","不是","以及","可以","如果","因此","以及","會"]);
-      const map = new Map();
-      (text || "").replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s]/g," ").split(/\s+/).forEach(w=>{
-        if(!w || w.length<2 || STOP.has(w)) return;
-        map.set(w, (map.get(w)||0)+1);
-      });
-      return [...map.entries()].sort((a,b)=>b[1]-a[1]).slice(0,12).map(([k,c])=>({k,c}));
-    }
+/* ======================
+   工具函式
+====================== */
+const $ = (q, el=document)=>el.querySelector(q);
+const h = (html)=>{const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild;};
+const esc = (s)=>String(s||"").replace(/[&<>"'`]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c]));
 
-    async function fetchIssuesByLabels(labelList){
-      for (const label of labelList){
-        const url = `https://api.github.com/repos/${REPO}/issues?state=open&per_page=100&labels=${encodeURIComponent(label)}`;
-        const r = await fetch(url, {headers:{'Accept':'application/vnd.github+json'}});
-        if(r.ok){
-          const arr = await r.json();
-          if(Array.isArray(arr) && arr.length) return arr;
-        }
+/* 文字清洗（避免長度過長） */
+function trimText(s, n=320){ s = (s||"").trim(); if(s.length<=n) return s; return s.slice(0,n-1)+'…'; }
+
+/* 標籤判斷 */
+const hasAny = (names, pats)=>names?.some(n=>pats.some(p=>p.test(n)))||false;
+
+/* 來源分類（後端有 /api/reviews 時會直接給；這邊做前端保險） */
+function classify(issue){
+  const labels = (issue.labels||[]).map(l=> typeof l==='string'?l : l.name);
+  if (hasAny(labels, GOOGLE_LABELS) || /google評價|google\s*review/i.test(issue.title||"")) return 'google';
+  if (hasAny(labels, CUSTOMER_LABELS)) return 'customer';
+  return 'unspecified';
+}
+/* 具名判斷：標籤優先，否則用簡單規則（標題含公司/姓名） */
+function isNamed(issue){
+  const labels = (issue.labels||[]).map(l=> typeof l==='string'?l : l.name);
+  if (hasAny(labels, PRIORITY_LABELS)) return true;
+  const title = issue.title||"";
+  return /公司|股份有限|有限公司|行號|工作室|先生|小姐|經理|負責人|老闆|董事|CEO|CTO/i.test(title);
+}
+
+/* UI：卡片 */
+function renderOwnerCard(it){
+  const labels = (it.labels||[]).map(n=>`<span class="pill">${esc(n)}</span>`).join(" ");
+  return h(`
+    <article class="item" data-chunk-id="issue-${it.number}" data-topic="owner" data-asof-date="${it.date}" data-source-url="${it.url}">
+      <h3>${esc(it.title||'（無標題）')}</h3>
+      <div class="meta"><span>#${it.number}</span><span>建立：${it.date}</span><a href="${it.url}" target="_blank" rel="noopener">來源：Issue</a></div>
+      ${it.excerpt ? `<div>${esc(it.excerpt)}</div>` : `<div class="meta">（提交者未提供內文）</div>`}
+      <div class="pills">${labels}</div>
+      <div class="actions"><a class="pill" href="${it.url}" target="_blank" rel="noopener">閱讀完整內容 →</a></div>
+    </article>
+  `);
+}
+function renderGoogleCard(it){
+  // 只顯示「標籤＋查證連結」，不顯示原文、不顯示星等/評分
+  const usefulLabels = (it.labels||[]).filter(n=>!GOOGLE_LABELS.some(p=>p.test(n)) && !CUSTOMER_LABELS.some(p=>p.test(n)));
+  const chips = usefulLabels.length ? usefulLabels.slice(0,6).map(n=>`<span class="pill">${esc(n)}</span>`).join(" ") : `<span class="pill">Google 公開評論</span>`;
+  return h(`
+    <article class="item" data-chunk-id="issue-${it.number}" data-topic="google" data-asof-date="${it.date}" data-source-url="${it.url}">
+      <h3>Google 公開評論（處理後）</h3>
+      <div class="meta"><span>#${it.number}</span><span>建立：${it.date}</span></div>
+      <div class="pills">${chips}</div>
+      <div class="actions">
+        <a class="pill" href="${it.url}" target="_blank" rel="noopener">前往 Issue 查證</a>
+        <a class="pill" href="https://www.google.com/search?q=%E5%90%B3%E4%BA%8E%E5%AE%89+%E5%BE%8B%E5%B8%AB+%E8%A9%95%E5%83%B9" target="_blank" rel="noopener">到 Google 查看</a>
+      </div>
+      <small class="muted">說明：不顯示任何 Google 原文與星等；請於 Google 商家頁閱讀完整內容。</small>
+    </article>
+  `);
+}
+
+/* 載入資料：優先 /api/reviews，失敗則回退 GitHub API */
+async function loadData(){
+  // A) 嘗試你的 Pages Functions
+  try{
+    const r = await fetch('/api/reviews',{credentials:'omit'});
+    if(r.ok){
+      const js = await r.json();
+      if(js && Array.isArray(js.items)){
+        return js.items.map(x=>({
+          number:x.number,
+          title:x.title,
+          labels:x.labels,
+          created_at:x.created_at,
+          html_url:x.html_url,
+          source:x.source,                 // 後端已分類：customer / google / unspecified
+          safe_excerpt:x.safe_excerpt||""
+        }));
       }
-      // 回退為全部 open issues（排除 PR）
-      const r = await fetch(`https://api.github.com/repos/${REPO}/issues?state=open&per_page=100`, {headers:{'Accept':'application/vnd.github+json'}});
-      if(!r.ok) throw new Error("GitHub API 無法讀取");
-      return (await r.json()).filter(x => !x.pull_request);
     }
+  }catch(e){ /* ignore and fallback */ }
 
-    function issueToCard(issue){
-      const created = new Date(issue.created_at).toLocaleDateString("zh-TW");
-      const title = esc(issue.title || "（無標題）");
-      const body = esc((issue.body || "").trim()).slice(0, 1000); // 防止過長
-      const labels = (issue.labels||[]).map(l=>`<span class="pill">${esc(l.name)}</span>`).join(" ");
+  // B) 回退 GitHub API
+  const url = `https://api.github.com/repos/${REPO}/issues?state=open&per_page=100`;
+  const r = await fetch(url,{headers:{'Accept':'application/vnd.github+json'}});
+  const arr = await r.json();
+  return (Array.isArray(arr)?arr:[]).filter(x=>!x.pull_request).map(x=>{
+    const src = classify(x);
+    // Google 來源：前端再次淨化 → 不帶任何正文
+    const excerpt = (src==='google') ? "" : trimText(x.body||"", 360);
+    return {
+      number:x.number,
+      title:x.title||"(無標題)",
+      labels:(x.labels||[]).map(l=>l.name),
+      created_at:x.created_at,
+      html_url:x.html_url,
+      source:src,
+      safe_excerpt:excerpt
+    };
+  });
+}
 
-      return h(`
-        <article class="card review" data-issue="${issue.number}">
-          <h3>${title}</h3>
-          <div class="meta">
-            <span>#${issue.number}</span>
-            <span>建立於 ${created}</span>
-            <a href="${issue.html_url}" target="_blank" rel="noopener">來源：GitHub Issue</a>
-          </div>
-          <div class="body">${body ? body : "<em class='empty'>（作者未提供內文）</em>"}</div>
-          <div class="footer">
-            <div class="meta">${labels}</div>
-            <a class="pill" href="${issue.html_url}" target="_blank" rel="noopener">閱讀完整內容 →</a>
-          </div>
-        </article>
-      `);
-    }
+/* 主流程 */
+(async function(){
+  const ownersBox = $('#ownersList');
+  const googleBox = $('#googleList');
+  const statCount = $('#statCount');
+  const moreBtn = $('#moreGoogle');
 
-    async function main(){
-      const listEl = $("#reviews-list");
-      const statsEl = $("#reviews-stats");
-      try{
-        const issues = await fetchIssuesByLabels(LABELS_TRY);
-        listEl.innerHTML = "";
-        if(!issues.length){
-          listEl.append(h(`<div class="empty">目前尚無公開回饋。歡迎您成為第一位投稿者！</div>`));
-        }else{
-          const frag = document.createDocumentFragment();
-          issues.forEach(it => frag.append(issueToCard(it)));
-          listEl.append(frag);
-        }
-        // 更新統計
-        $("#stat-count").textContent = String(issues.length);
+  let data = await loadData();
+  // 轉換基本欄位
+  data = data.map(d=>({
+    number:d.number, title:d.title, labels:d.labels||[],
+    date: new Date(d.created_at).toISOString().slice(0,10),
+    url: d.html_url, source: d.source || classify(d),
+    excerpt: d.safe_excerpt ? trimText(d.safe_excerpt, 360) : ""
+  }));
+  statCount.textContent = data.length;
 
-        // 依所有 Issue 內文字做簡易關鍵詞
-        const allText = issues.map(x => `${x.title}\n${x.body||""}`).join("\n");
-        const kws = topKeywords(allText);
-        const tc = $("#tagcloud"); tc.innerHTML = "";
-        if(kws.length){
-          kws.forEach(({k,c}) => tc.append(h(`<span class="pill">${esc(k)} × ${c}</span>`)));
-        }else{
-          tc.append(h(`<span class="pill">尚無關鍵詞</span>`));
-        }
-      }catch(err){
-        console.error(err);
-        listEl.innerHTML = `<div class="empty">讀取失敗：${esc(String(err.message||err))}。您仍可直接前往 <a href="https://github.com/${REPO}/issues" target="_blank" rel="noopener">Issues</a> 查看。</div>`;
-      }
-    }
-    main();
-  </script>
+  // A) 企業主優先（9 位）
+  const namedOwners = data.filter(d => d.source!=='google' && isNamed(d));
+  const ownerPool = namedOwners.length ? namedOwners : data.filter(d=>d.source!=='google');
+  const owners = ownerPool.sort((a,b)=> new Date(b.date)-new Date(a.date)).slice(0, OWNERS_LIMIT);
+
+  ownersBox.innerHTML = "";
+  if(!owners.length){
+    ownersBox.append(h(`<div class="card center" style="grid-column:1/-1">目前沒有「具名企業主」見證。請在想優先顯示的 Issue 加上 <span class="kbd">具名</span> 標籤。</div>`));
+  }else{
+    const frag = document.createDocumentFragment();
+    owners.forEach(it=>frag.append(renderOwnerCard(it)));
+    ownersBox.append(frag);
+  }
+
+  // B) Google 公開評論（處理後，不含原文）
+  const googleItems = data.filter(d=>d.source==='google').sort((a,b)=> new Date(b.date)-new Date(a.date));
+  let gPage = 0;
+  function renderGooglePage(){
+    const slice = googleItems.slice(gPage*GOOGLE_PAGE, (gPage+1)*GOOGLE_PAGE);
+    const frag = document.createDocumentFragment();
+    slice.forEach(it=>frag.append(renderGoogleCard(it)));
+    if(gPage===0) googleBox.innerHTML = "";
+    googleBox.append(frag);
+    gPage++;
+    if(gPage*GOOGLE_PAGE >= googleItems.length) moreBtn.style.display = 'none';
+  }
+  moreBtn.addEventListener('click', renderGooglePage);
+  renderGooglePage(); // 初次載入
+})();
+</script>
 </body>
 </html>
