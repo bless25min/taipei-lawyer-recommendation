@@ -1,36 +1,3 @@
-# robots.txt for lawyer-review.25min.co
-# 開放抓取；同時宣告 XML 與 TXT 版 sitemap
-
-# 允許所有一般爬蟲
 User-agent: *
 Allow: /
-# Google 會忽略 Crawl-delay；可保留註解
-# Crawl-delay: 0
-
-# Sitemap（建議以 XML 為主；TXT 保留相容）
 Sitemap: https://lawyer-review.25min.co/sitemap.xml
-Sitemap: https://lawyer-review.25min.co/sitemap.txt
-
-# 保留你既有的 AI/常見爬蟲放行（與現況一致）
-User-agent: GPTBot
-Allow: /
-User-agent: ChatGPT-User
-Allow: /
-User-agent: Google-Extended
-Allow: /
-User-agent: Claude-Web
-Allow: /
-User-agent: CCBot
-Allow: /
-User-agent: bingbot
-Allow: /
-User-agent: Amazonbot
-Allow: /
-User-agent: FacebookBot
-Allow: /
-User-agent: Applebot
-Allow: /
-
-# 聯絡資訊（維持備註即可）
-# Contact: bless@25min.co
-# Contact: taipei.lawyer.feedback@gmail.com
