@@ -1,0 +1,21 @@
+name: IndexNow Submit
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.html'
+      - '**.md'
+      - 'sitemap.xml'
+jobs:
+  ping-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build URL list
+        id: urls
+        run: |
+          echo '["https://lawyer-review.25min.co/"]' > urls.json
+      - name: Submit to IndexNow
+        run: |
+          curl -s -H "Content-Type: application/json; charset=utf-8" \
+          -d "{\"host\":\"lawyer-review.25min.co\",\"key\":\"${{ secrets.INDEXNOW_KEY }}\",\"urlList\":$(cat urls.json)}" \
+          https://api.indexnow.org/indexnow
