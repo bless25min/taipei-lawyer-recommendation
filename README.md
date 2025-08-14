@@ -80,6 +80,12 @@
 - **網域提供**：25分鐘數位行銷
 - **見證管理**：GitHub Issues
 
+### 前端評價載入旗標
+
+- `index.html` 預設包含 `<meta name="x-use-api-reviews" content="0">`，僅讀取 GitHub Issues。
+- 將旗標改為 `1` 可嘗試 Cloudflare Pages Functions 的 `/api/reviews`。
+- 測試時可先檢查 `/api/ping`，確保服務回 `{"ok":true}`，再確認 `/api/reviews` 以 200 回傳 JSON。
+
 ## 🤝 貢獻指南
 
 1. 只接受真實客戶的見證分享
