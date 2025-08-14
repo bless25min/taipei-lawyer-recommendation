@@ -181,12 +181,12 @@
     </div>
   </footer>
   <script type="module">
-const gridMain = document.getElementById('reviews-grid');     // 你原本的「Google/客戶精選」容器
-const gridBiz  = document.getElementById('biz-grid');          // 新增的「企業主具名評價」容器
+const gridMain = document.getElementById('reviews-grid'); // 一般精選（沿用你原本）
+const gridBiz  = document.getElementById('biz-grid');      // 企業主具名（新增）
 
 function escapeHTML(s){ return (s||'').toString().replace(/[&<>"']/g,c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+const norm = s => (s||'').toString().normalize('NFKC').trim().toLowerCase().replace(/\s+/g,'');
 
-// --- 渲染：一般精選（延用你原樣式）
 function renderMain(items){
   if (!gridMain) return;
   gridMain.innerHTML = '';
@@ -204,22 +204,22 @@ function renderMain(items){
   });
 }
 
-// --- 渲染：企業主具名
 function renderBiz(items){
   if (!gridBiz) return;
   gridBiz.innerHTML = '';
   if (!items?.length){
-    gridBiz.innerHTML = '<p class="muted">目前尚無帶「企業主」標籤的公開見證。</p>';
+    gridBiz.innerHTML = `
+      <p class="muted">目前尚無可顯示的企業主具名見證。</p>
+      <p><a href="https://github.com/bless25min/taipei-lawyer-recommendation/issues?q=is%3Aissue+label%3Aclient-feedback+label%3A%E4%BC%81%E6%A5%AD%E4%B8%BB+is%3Aopen" target="_blank" rel="noopener">到 GitHub 檢視企業主見證 →</a></p>
+    `;
     return;
   }
   items.forEach(x=>{
     const el = document.createElement('div');
     el.className = 'biz-card';
-    const title = x.title || '(無標題)';
     const stamp = x.created_at ? new Date(x.created_at).toISOString().slice(0,10) : '';
-    const from  = x.company || ''; // 允許未來後端補公司欄位；目前取自 title
     el.innerHTML = `
-      <h4>${escapeHTML(title)}</h4>
+      <h4>${escapeHTML(x.title || '(無標題)')}</h4>
       <div class="meta">${stamp ? escapeHTML(stamp) + ' ｜ ' : ''}標籤：企業主、客戶見證</div>
       <div class="excerpt">${escapeHTML((x.safe_excerpt || x.body || '')).slice(0,220)}${(x.safe_excerpt||x.body||'').length>220?'...':''}</div>
       <p style="margin-top:.5rem"><a href="${x.html_url}" target="_blank" rel="nofollow noopener">到 GitHub 看完整內容 →</a></p>
@@ -228,70 +228,86 @@ function renderBiz(items){
   });
 }
 
-// --- 來源：GitHub Issues（穩定入口）
-async function fetchFromGithub(){
-  const url = 'https://api.github.com/repos/bless25min/taipei-lawyer-recommendation/issues?state=open&per_page=100';
+// ---- 基本工具
+async function gh(url){
   const r = await fetch(url, { headers:{ 'accept':'application/vnd.github+json' }});
-  const raw = await r.json();
-
-  const list = (Array.isArray(raw)?raw:[])
-    .filter(x => !x.pull_request)
-    .map(x => {
-      const labels = (x.labels||[]).map(l=> (l && (l.name||l)) || '').filter(Boolean);
-      const isGoogle   = labels.some(n=>/google|google-review|來源:google/i.test(n));
-      const isCustomer = labels.some(n=>/client-feedback|用戶自主上傳評價|原創/i.test(n));
-      const isBizOwner = labels.some(n=>/企業主|business[-\s]?owner|enterprise/i.test(n));
-      return {
-        title: x.title || '(無標題)',
-        html_url: x.html_url,
-        created_at: x.created_at,
-        labels,
-        source: isGoogle ? 'google' : (isCustomer ? 'customer' : 'unspecified'),
-        isBizOwner,
-        isCustomer,
-        body: (x.body || '').replace(/\s+/g,' ').trim()
-      };
-    });
-
-  const mainItems = list.map(({title,html_url,source,body}) => ({ title, html_url, source, body }));
-  const bizItems  = list.filter(x => x.isBizOwner && x.isCustomer);
-
-  return { mainItems, bizItems };
+  if (!r.ok) throw new Error('GitHub '+r.status);
+  return r.json();
+}
+function sanitizeList(raw){
+  const list = (Array.isArray(raw)?raw:[]).filter(x=>!x.pull_request).map(x=>{
+    const labels = (x.labels||[]).map(l => (l?.name ?? l) ?? '');
+    const tokens = labels.map(norm);
+    const isGoogle   = tokens.some(n=> n.includes('google') || n.includes('googlereview') || n.includes('來源:google') || n.includes('google評價'));
+    const isCustomer = tokens.some(n=> n==='client-feedback' || n.includes('用戶自主上傳評價') || n.includes('原創') || n.includes('客戶見證'));
+    const isBizOwner = tokens.some(n=> n.includes('企業主') || n.includes('businessowner') || n.includes('enterprise'));
+    return {
+      title: x.title || '(無標題)', html_url: x.html_url, created_at: x.created_at,
+      source: isGoogle ? 'google' : (isCustomer ? 'customer' : 'unspecified'),
+      isCustomer, isBizOwner,
+      body: (x.body || '').replace(/\s+/g,' ').trim()
+    };
+  });
+  return list;
 }
 
-// --- 來源：/api/reviews（可選；若開啟旗標則覆蓋一般精選，不影響企業主）
+// ---- 主要清單（一般精選）
+async function fetchMainFromGithub(){
+  const url = 'https://api.github.com/repos/bless25min/taipei-lawyer-recommendation/issues?state=open&per_page=100';
+  const raw = await gh(url);
+  const list = sanitizeList(raw);
+  const mainItems = list.map(({title,html_url,source,body}) => ({ title, html_url, source, body }));
+  const bizFallback = list.filter(x => x.isBizOwner && x.isCustomer);
+  return { mainItems, bizFallback };
+}
+
+// ---- 企業主專用：由 API 直接以 labels 交集篩選（雙標籤同時存在）
+async function fetchBizFromGithub(){
+  const url = 'https://api.github.com/repos/bless25min/taipei-lawyer-recommendation/issues'
+    + '?state=open&per_page=100'
+    + '&labels=' + encodeURIComponent('client-feedback') + ',' + encodeURIComponent('企業主');
+  const raw = await gh(url);
+  const list = sanitizeList(raw);
+  return list; // 皆為企業主 + 客戶見證
+}
+
+// ---- （可選）Cloudflare Functions：覆蓋一般精選，不影響企業主區
 async function fetchFromApiWithTimeout(ms=2500){
-  const ctrl = new AbortController();
-  const t = setTimeout(()=>ctrl.abort(), ms);
+  const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), ms);
   try {
     const r = await fetch('/api/reviews', { headers:{ 'accept':'application/json' }, signal: ctrl.signal });
-    if (!r.ok) throw new Error('bad status '+r.status);
+    if (!r.ok) throw new Error('bad '+r.status);
     const data = await r.json();
     return (data.items || []).map(x => ({
-      title: x.title, html_url: x.html_url,
-      source: x.source || 'unspecified',
-      safe_excerpt: x.safe_excerpt || '',
-      created_at: x.created_at
+      title: x.title, html_url: x.html_url, source: x.source || 'unspecified',
+      safe_excerpt: x.safe_excerpt || '', created_at: x.created_at
     }));
   } finally { clearTimeout(t); }
 }
 
 (async () => {
+  if (gridBiz) gridBiz.innerHTML = '<p class="muted">讀取中…</p>';
+
   const useApi = document.querySelector('meta[name="x-use-api-reviews"]')?.content === '1';
 
-  // 先用 GitHub（同時渲染：一般精選 + 企業主具名）
-  const { mainItems, bizItems } = await fetchFromGithub().catch(()=>({ mainItems:[], bizItems:[] }));
+  // 先抓 GitHub（穩）：渲染一般精選 + 企業主備援
+  const { mainItems, bizFallback } = await fetchMainFromGithub().catch(()=>({ mainItems:[], bizFallback:[] }));
   renderMain(mainItems);
+
+  // 企業主專區：優先用「API labels 篩選」，失敗再退回前端分類
+  let bizItems = await fetchBizFromGithub().catch(()=>[]);
+  if (!bizItems.length) bizItems = bizFallback;
   renderBiz(bizItems);
 
-  // 若啟用 Functions，僅覆蓋「一般精選」，企業主仍以 GitHub 為準（避免後端欄位不同步）
+  // 若啟用 Functions，僅覆蓋「一般精選」
   if (useApi) {
     try {
       const apiItems = await fetchFromApiWithTimeout(2500);
       if (apiItems?.length) renderMain(apiItems);
-    } catch { /* 靜默失敗，避免 502 冒泡 */ }
+    } catch { /* 靜默失敗，避免 502 影響畫面 */ }
   }
 })();
-</script>
+
+  </script>
 </body>
 </html>
