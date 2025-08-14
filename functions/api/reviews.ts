@@ -29,8 +29,9 @@ export const onRequestGet: PagesFunction<{ GITHUB_TOKEN?: string }> = async (ctx
         .filter((x:any) => !x.pull_request)
         .map((x:any) => {
           const labels = (x.labels||[]).map((l:any)=>l.name||'');
-          const isGoogle   = labels.some((n:string)=>/google|google-review|來源:google/i.test(n));
-          const isCustomer = labels.some((n:string)=>/client-feedback|用戶自主上傳評價|原創/i.test(n));
+          const isGoogle     = labels.some((n:string)=>/google|google-review|來源:google/i.test(n));
+          const isCustomer   = labels.some((n:string)=>/client-feedback|用戶自主上傳評價|原創/i.test(n));
+          const isEnterprise = labels.some((n:string)=>/企業主|business[-\s]?owner|enterprise/i.test(n));
           const source = isGoogle ? 'google' : (isCustomer ? 'customer' : 'unspecified');
           const strip = (s:string) => s.replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
           const safe_excerpt = source === 'customer' ? strip(x.body||'').slice(0,280) : '';
@@ -39,7 +40,9 @@ export const onRequestGet: PagesFunction<{ GITHUB_TOKEN?: string }> = async (ctx
             title: x.title || '(無標題)',
             labels, created_at: x.created_at,
             html_url: x.html_url,
-            source, safe_excerpt
+            source, safe_excerpt,
+            isEnterprise,
+            company: (x.title || '').replace(/^\s*\[[^\]]*\]\s*/,'')
           };
         });
 
