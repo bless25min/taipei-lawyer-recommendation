@@ -1,4 +1,9 @@
-export const onRequestGet: PagesFunction<{ GITHUB_TOKEN?: string }> = async (ctx) => {
+export const onRequestGet: PagesFunction<{
+  GITHUB_TOKEN?: string;
+  GITHUB_OWNER?: string;
+  GITHUB_REPO?: string;
+  GITHUB_LABEL?: string;
+}> = async (ctx) => {
   const { env, request } = ctx;
   const url = new URL(request.url);
   const cache = caches.default;
@@ -7,7 +12,10 @@ export const onRequestGet: PagesFunction<{ GITHUB_TOKEN?: string }> = async (ctx
   const cached = await cache.match(cacheKey);
   if (cached) return cached;
 
-  const ghURL = 'https://api.github.com/repos/bless25min/taipei-lawyer-recommendation/issues?state=open&per_page=100';
+  const owner = env.GITHUB_OWNER || 'bless25min';
+  const repo = env.GITHUB_REPO || 'taipei-lawyer-recommendation';
+  const label = env.GITHUB_LABEL || '';
+  const ghURL = `https://api.github.com/repos/${owner}/${repo}/issues?state=open&per_page=100${label ? `&labels=${encodeURIComponent(label)}` : ''}`;
   const headers: Record<string,string> = {
     'Accept': 'application/vnd.github+json',
     'User-Agent': 'lawyer-review-site/1.0'
@@ -57,7 +65,7 @@ export const onRequestGet: PagesFunction<{ GITHUB_TOKEN?: string }> = async (ctx
     status,
     headers: {
       'content-type': 'application/json; charset=utf-8',
-      'cache-control': 'public, max-age=900',
+      'cache-control': 'public, max-age=3600',
       'access-control-allow-origin': '*',
       'access-control-allow-methods': 'GET, OPTIONS'
     }
